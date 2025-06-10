@@ -1,5 +1,4 @@
 package com.RhTech.RhTech.controller;
-// Importações necessárias
 import java.util.List; // Para lidar com listas de objetos
 
 import org.springframework.beans.factory.annotation.Autowired; // Injeção de dependência
@@ -19,8 +18,6 @@ import com.RhTech.RhTech.service.cadastroService;
 
 @CrossOrigin(origins = "*")
 
-
-// Anotação que define esta classe como um Controller REST
 @RestController
 
 // Caminho base para todas as requisições deste controller
