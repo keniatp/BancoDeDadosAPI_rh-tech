@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="bg-emerald-100 justify-center min-h-screen flex flex-col items-center space-y-5 pb-12">
+        <h2 class="text-4xl font-bold text-teal-600 pt-12">CADASTRAR</h2>
+        <form class="bg-teal-600 rounded-lg p-12 w-[450px] space-y-4">
+            <!-- Campo do Nome -->
+            <div class="flex flex-col">
+                <label for="nome" class="text-white">Nome </label>
+                <input type="text" id="nome" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400">
+            </div>
+
+
+            <!-- Campo do Email -->
+            <div class="flex flex-col">
+                <label for="email" class="text-white" >Email</label>
+                <input type="text" id="email" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400">
+            </div>
+
+
+            <!-- Campo do Senha -->
+            <div class="flex flex-col">
+                <label for="senha" class="text-white" >Senha</label>
+                <input type="text" id="senha" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400">
+            </div>
+
+            <div class="flex flex-row items-end space-x-2">
+            <!-- Campo do CEP -->
+            <div class="flex flex-col">
+                <!-- Label e aviso lado a lado -->
+                <div class="flex flex-row items-center space-x-2">
+                <label for="cep" class="text-white">CEP</label>
+                <p id="cep-aviso" class="text-red-500 text-sm hidden">CEP não encontrado</p>
+                </div>
+                <input type="text" id="cep" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400 w-[240px]">
+            </div>
+
+            <!-- Campo do Número -->
+            <div class="flex flex-col ml-2">
+                <label for="numero" class="text-white">Número</label>
+                <input type="text" id="numero" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400 w-[105px]">
+            </div>
+            </div>
+
+
+            <!-- Campo do Enderço -->
+            <div class="flex flex-col">
+                <label for="endereco" class="text-white">Endereco</label>
+                <input type="text" id="endereco" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400">
+            </div>
+
+            <!-- Campo do Bairro -->
+            <div class="flex flex-col">
+                <label for="bairro" class="text-white">Bairro</label>
+                <input type="text" id="bairro" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400">
+            </div>
+
+
+            <!-- Campo do Cidade -->
+            <div class="flex flex-col">
+                <label for="cidade" class="text-white">Cidade</label>
+                <input type="text" id="cidade" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400">
+            </div>
+
+
+            <!-- Campo do Estado -->
+            <div class="flex flex-col">
+                <label for="estado" class="text-white">Estado</label>
+                <input type="text" id="estado" class="p-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder:text-gray-400">
+            </div>
+        
+        
+            <!-- Botão -->
+            <button type="submit" class=" mx-auto block px-10 py-2 bg-white text-teal-600 font-bold rounded hover:bg-green-100 "> CADASTRAR </button>
+
+        </form>
+
+    </div>
+
+
+
+        <!-- Scripts -->
+    <script src="../js/index.js" ></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/cep.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
