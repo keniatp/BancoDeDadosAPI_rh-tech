@@ -14,21 +14,23 @@ import org.springframework.web.bind.annotation.RestController; // Indica que est
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.RhTech.RhTech.model.cadastroModel;
+import com.RhTech.RhTech.model.funcionarioCargoModel;
 import com.RhTech.RhTech.service.cadastroService;
+import com.RhTech.RhTech.service.funcionarioCargoService;
 
 @CrossOrigin(origins = "*") 
 
 @RestController
 
 // Caminho base para todas as requisições deste controller
-@RequestMapping("/api/cadastro")
-public class cadastroController {
-    // Injeção de dependência do serviço que vai realizar a lógica de negócio
+@RequestMapping("/api/funcionarioCargo")
+public class funcionarioCargoController {
+     // Injeção de dependência do serviço que vai realizar a lógica de negócio
     @Autowired
-    private cadastroService service;
+    private funcionarioCargoService service;
 
     @GetMapping
-    public List<cadastroModel> listarTodos() {
+    public List<funcionarioCargoModel> listarTodos() {
         // Chama o método do service que retorna a lista de todas os alunos
         return service.listarTodos();
     }
@@ -37,10 +39,9 @@ public class cadastroController {
      * Método GET para buscar uma pessoa específica pelo ID.
      */
     @GetMapping("/{id}")
-    public ResponseEntity<cadastroModel> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<funcionarioCargoModel> buscarPorId(@PathVariable Long id) {
         // Busca a pessoa pelo ID, se encontrar, retorna 200 (OK), se não, retorna 404 (Not Found)
-        return service.buscarPorId(id)
-                     .map(ResponseEntity::ok) // Converte o resultado em ResponseEntity com status 200
+        return service.buscarPorId(id).map(ResponseEntity::ok) // Converte o resultado em ResponseEntity com status 200
                      .orElse(ResponseEntity.notFound().build()); // Retorna 404 se não encontrar
     }
 
@@ -48,25 +49,25 @@ public class cadastroController {
      * Método POST para salvar uma nova pessoa.
      */
     @PostMapping
-    public cadastroModel salvar(@RequestBody cadastroModel cadastromodel) {
+    public funcionarioCargoModel salvar(@RequestBody funcionarioCargoModel funcionariocargomodel) {
         // Chama o método de salvar do service e retorna o objeto persistido
-        return service.salvar(cadastromodel);
+        return service.salvar(funcionariocargomodel);
     }
 
     /**
      * Método PUT para atualizar os dados de uma pessoa existente.
      */
     @PutMapping("/{id}")
-    public ResponseEntity<cadastroModel> atualizar(@PathVariable Long id, @RequestBody cadastroModel cadastromodel) {
+    public ResponseEntity<funcionarioCargoModel> atualizar(@PathVariable Long id, @RequestBody funcionarioCargoModel funcionariocargomodel) {
         // Verifica se o ID existe no banco de dados
         if (!service.buscarPorId(id).isPresent()) {
             // Se não encontrar, retorna 404 (Not Found)
             return ResponseEntity.notFound().build();
         }
         // Define o ID no objeto (caso não tenha sido passado no corpo)
-        cadastromodel.setId(id);
+        funcionariocargomodel.setId(id);
         // Salva o objeto atualizado e retorna 200 (OK)
-        return ResponseEntity.ok(service.salvar(cadastromodel));
+        return ResponseEntity.ok(service.salvar(funcionariocargomodel));
     }
 
     /**
